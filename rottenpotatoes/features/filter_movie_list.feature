@@ -38,4 +38,4 @@ Feature: display list of movies filtered by MPAA rating
     And I should not see "Chicken Run"
 
   Scenario: all ratings selected
-  # see assignment
+    Then I should see all the movies

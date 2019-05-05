@@ -27,15 +27,17 @@ end
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   rating_list.split(",").each do |rating|
-    if uncheck === "un"
-      steps %Q{And I uncheck "#{rating.strip}"}
+    strip = rating.strip
+    if uncheck.eql? "un"
+      steps %(And I uncheck "#{strip}")
     else
-      steps %Q{And I check "#{rating.strip}"}
+      steps %(And I check "#{strip}")
     end
   end
 end
 
 Then /I should see all the movies/ do
-  # Make sure that all the movies in the app are visible in the table
-  fail "Unimplemented"
+  table = page.find(:css, 'table tbody')
+  row_count = table.all(:css, 'tr').size
+  expect(row_count).to eq 10
 end
