@@ -16,14 +16,10 @@ end
 #   on the same page
 
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
-  #  ensure that that e1 occurs before e2.
-  #  page.body is the entire content of the page as a string.
-  fail "Unimplemented"
+  movie_td = 'table#movies td:nth-child(5n+1)'
+  movie_titles = page.all(:css, movie_td).map(&:text)
+  expect(movie_titles.find_index(e1)).to be < movie_titles.find_index(e2)
 end
-
-# Make it easier to express checking or unchecking several boxes at once
-#  "When I uncheck the following ratings: PG, G, R"
-#  "When I check the following ratings: G"
 
 When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   rating_list.split(",").each do |rating|
