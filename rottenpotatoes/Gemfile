@@ -21,6 +21,7 @@ group :test do
   gem 'cucumber-rails' 
   gem 'cucumber-rails-training-wheels'
 end
+
 group :production do
 #  gem 'pg'
 end
@@ -36,6 +37,7 @@ gem 'uglifier', '>= 2.7.1'
 gem 'jquery-rails'
 gem 'haml'
 gem 'protected_attributes'
+gem 'themoviedb'
 
 # Use unicorn as the web server
 # gem 'unicorn'
