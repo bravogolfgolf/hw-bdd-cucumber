@@ -20,6 +20,7 @@ end
 group :test do
   gem 'cucumber-rails' 
   gem 'cucumber-rails-training-wheels'
+  gem 'guard-rspec'
 end
 
 group :production do
